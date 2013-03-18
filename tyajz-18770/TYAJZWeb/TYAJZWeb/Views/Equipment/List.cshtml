@@ -1,0 +1,88 @@
+﻿@model System.Collections.Generic.IList<EquipmentListModel>
+@{
+    ViewBag.Title = "设备列表";
+}
+@Html.ActionLink("新增", "Add")
+<table>
+    <tr>
+        <th>
+            操作
+        </th>
+        <th>
+            备案编号
+        </th>
+        <th>
+            产权单位
+        </th>
+        <th>
+            设备名称
+        </th>
+        <th>
+            设备型号
+        </th>
+        <th>
+            合格证号
+        </th>
+        <th>
+            出厂日期
+        </th>
+        <th>
+            出厂代号
+        </th>
+        <th>
+            状态
+        </th>
+        <th>
+            输入日期
+        </th>
+        <th>
+            设计年限
+        </th>
+        <th>
+            已用年限
+        </th>
+        <th>
+            打印
+        </th>
+        <th>
+            备注
+        </th>
+    </tr>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("修改", "Edit", new { id = m.Id }, new { @class = "lnkEdit" })
+                @Html.ActionLink("删除", "Delete", new { id = m.Id }, new { @class = "lnkEdit" })
+                @Html.ActionLink("打印", "PrintLocal", new { id = m.Id }, new { @class = "lnkEdit" })
+            </td>
+            <td>@m.NO
+            </td>
+            <td>@m.Eq_Owner
+            </td>
+            <td>@m.Eq_Name
+            </td>
+            <td>@m.Eq_Type
+            </td>
+            <td>@m.Eq_CertNo
+            </td>
+            <td>@m.Eq_MadeDate.ToString("yyyy/MM/dd")
+            </td>
+            <td>@m.Eq_MadeNo
+            </td>
+            <td>
+                @m.Eq_Status
+            </td>
+            <td>@m.RegisterDate.ToString("yyyy/MM/dd")
+            </td>
+            <td>@m.Eq_LimitMonths 年
+            </td>
+            <td>@m.Eq_HaveUsedMonths 年
+            </td>
+            <td>@Html.Raw(m.Eq_IsPrinted ? "是" : "")
+            </td>
+            <td>@m.Eq_Comment
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,62 @@
+﻿@model IList<ProjectListModel>
+@{
+    ViewBag.Title = "List";
+}
+@Html.ActionLink("新增报检", "Add")
+@Html.ActionLink("工程查询", "Index")
+@Html.ActionLink("设备查询", "Index")
+<table>
+    <tr>
+        <th colspan="5">
+            工程操作
+        </th>
+        <th>
+            工程名称
+        </th>
+        <th>
+            设备备案号
+        </th>
+        <th>
+            设备合格证号
+        </th>
+        <th>
+            检测情况
+        </th>
+        <th>
+            准运证领取情况
+        </th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var t in Model)
+        {
+        <tr>
+            <td>@Html.CheckBox("Id", new { value = t.Id })
+            </td>
+            <td>
+                领证
+            </td>
+            <td>
+                修改
+            </td>
+            <td>
+                删除
+            </td>
+            <td>
+                报拆
+            </td>
+            <td>
+                @t.Name
+            </td>
+            <td>@t.EquipmentNo
+            </td>
+            <td>@t.EquipmentCertNo
+            </td>
+            <td>@t.InspectResultString
+            </td>
+            <td>@t.HasPrintedString
+            </td>
+        </tr>
+        }
+    }
+</table>

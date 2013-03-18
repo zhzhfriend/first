@@ -1,0 +1,139 @@
+﻿@model CompanyEditModel
+@{
+    if (Model == null)
+    {
+        ViewBag.Title = "新增机构信息";
+    }
+    else
+    { ViewBag.Title = "修改机构信息"; }
+}
+@Html.ValidationSummary()
+@using (Html.BeginForm())
+{
+    <table width="100%">
+        <tr>
+            <th width="140">
+                @Html.LabelFor(m => m.Name)
+            </th>
+            <td width="300">@Html.EditorFor(m => m.Name)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Name)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Address)
+            </th>
+            <td>@Html.EditorFor(m => m.Address)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Address)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Legal)
+            </th>
+            <td>@Html.EditorFor(m => m.Legal)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Legal)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.PhoneOfLegal)
+            </th>
+            <td>@Html.EditorFor(m => m.PhoneOfLegal)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.PhoneOfLegal)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Contactor)
+            </th>
+            <td>@Html.EditorFor(m => m.Contactor)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Contactor)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.PhoneOfContactor)
+            </th>
+            <td>@Html.EditorFor(m => m.PhoneOfContactor)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.PhoneOfContactor)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.CanProduct)
+            </th>
+            <td>@Html.EditorFor(m => m.CanProduct)
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.ProductNO)
+            </th>
+            <td>@Html.EditorFor(m => m.ProductNO)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.ProductNO)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.CanInstall)
+            </th>
+            <td>@Html.EditorFor(m => m.CanInstall)
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.InstallNO)
+            </th>
+            <td>@Html.EditorFor(m => m.InstallNO)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.InstallNO)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.CanLend)
+            </th>
+            <td>@Html.EditorFor(m => m.CanLend)
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.LendNO)
+            </th>
+            <td>@Html.EditorFor(m => m.LendNO)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.LendNO)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Comment)
+            </th>
+            <td>@Html.EditorFor(m => m.Comment)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @if (Model != null)
+                {
+                    @Html.HiddenFor(m => m.Id)
+                }
+                <input type="submit" value="保存" />
+            </td>
+        </tr>
+    </table>
+}

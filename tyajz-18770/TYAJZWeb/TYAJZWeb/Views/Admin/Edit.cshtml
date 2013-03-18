@@ -1,0 +1,31 @@
+﻿@model MVCWeb.Models.Users.UserEdit
+@{
+    ViewBag.Title = "Edit";
+}
+<h2>
+    Edit</h2>
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            <td>
+                用户名
+            </td>
+            <td>@Html.DisplayFor(m => m.UserName)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                姓名
+            </td>
+            <td>@Html.EditorFor(m => m.RealName)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @Html.HiddenFor(m => m.UserName)
+                <input type="submit" value="提交" />
+            </td>
+        </tr>
+    </table>
+}

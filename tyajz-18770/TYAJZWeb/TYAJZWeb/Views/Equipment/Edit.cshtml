@@ -1,0 +1,187 @@
+﻿@model EquipmentEditModel
+@{
+    if (Model == null || Model.Id == 0)
+    {
+        ViewBag.Title = "新注册设备";
+    }
+    else
+    {
+        ViewBag.Title = "修改设备";
+    }
+}
+@section CSS
+{
+    <link href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")" rel="stylesheet" type="text/css" />
+}
+@section JS
+{
+    <script src="@Url.Content("~/Scripts/Equipment.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-ui-1.8.11.min.js")" type="text/javascript"></script>
+}
+@Html.ValidationSummary()
+@using (Html.BeginForm())
+{
+    <table width="100%">
+        <tr>
+            <th width="200">
+                @Html.LabelFor(m => m.Eq_Name)
+            </th>
+            <td width="300">
+                @Html.DropDownListFor(m => m.Eq_Name, ViewBag.Names as IList<SelectListItem>, "请选择", null)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Eq_Name)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                设备属性
+            </th>
+            <td>
+                <label>@Html.CheckBoxFor(m => m.IsLocal, new { @checked = "true" }) 本地设备</label>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(m => m.Eq_Type)
+            </th>
+            <td>@Html.EditorFor(m => m.Eq_Type)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Eq_Type)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(m => m.Eq_CertNo)
+            </th>
+            <td>@Html.EditorFor(m => m.Eq_CertNo)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Eq_CertNo)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(m => m.Eq_MadeDate)
+            </th>
+            <td>@Html.EditorFor(m => m.Eq_MadeDate)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Eq_MadeDate)
+            </td>
+        </tr>
+        <tr class="LocalItem">
+            <th>@Html.LabelFor(m => m.Eq_OwnerCompanyId)
+            </th>
+            <td>@Html.DropDownListFor(m => m.Eq_OwnerCompanyId, ViewBag.OwnerCompanies as IList<SelectListItem>)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Eq_OwnerCompanyId)
+            </td>
+        </tr>
+        <tr class="LocalItem">
+            <th>@Html.LabelFor(m => m.Eq_ProducerCompanyId)
+            </th>
+            <td>@Html.DropDownListFor(m => m.Eq_ProducerCompanyId, ViewBag.ProductCompanies as IList<SelectListItem>)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Eq_ProducerCompanyId)
+            </td>
+        </tr>
+        <tr class="ExternalItem">
+            <th>@Html.LabelFor(m => m.Eq_Owner)
+            </th>
+            <td>@Html.EditorFor(m => m.Eq_Owner)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Eq_Owner)
+            </td>
+        </tr>
+        <tr class="ExternalItem">
+            <th>@Html.LabelFor(m => m.Eq_OwnerAdderss)
+            </th>
+            <td>@Html.EditorFor(m => m.Eq_OwnerAdderss)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Eq_OwnerAdderss)
+            </td>
+        </tr>
+        <tr class="ExternalItem">
+            <th>@Html.LabelFor(m => m.Eq_OwnerInCharge)
+            </th>
+            <td>@Html.EditorFor(m => m.Eq_OwnerInCharge)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Eq_OwnerInCharge)
+            </td>
+        </tr>
+        <tr class="ExternalItem">
+            <th>@Html.LabelFor(m => m.Eq_OwnerPhone)
+            </th>
+            <td>@Html.EditorFor(m => m.Eq_OwnerPhone)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Eq_OwnerPhone)
+            </td>
+        </tr>
+        <tr class="ExternalItem">
+            <th>@Html.LabelFor(m => m.Eq_Producer)
+            </th>
+            <td>@Html.EditorFor(m => m.Eq_Producer)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Eq_Producer)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(m => m.Eq_SpecCertNo)
+            </th>
+            <td>@Html.EditorFor(m => m.Eq_SpecCertNo)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Eq_SpecCertNo)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(m => m.Eq_MadeNo)
+            </th>
+            <td>@Html.EditorFor(m => m.Eq_MadeNo)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Eq_MadeNo)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(m => m.RegisterDepartment)
+            </th>
+            <td>@Html.EditorFor(m => m.RegisterDepartment)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.RegisterDepartment)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(m => m.RegisterDepartmentAddress)
+            </th>
+            <td>@Html.EditorFor(m => m.RegisterDepartmentAddress)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.RegisterDepartmentAddress)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(m => m.RegisterDepartmentPhone)
+            </th>
+            <td>@Html.EditorFor(m => m.RegisterDepartmentPhone)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.RegisterDepartmentPhone)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(m => m.Eq_RecDeskNo)
+            </th>
+            <td>@Html.EditorFor(m => m.Eq_RecDeskNo)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Eq_RecDeskNo)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(m => m.Eq_RecBoxNo)
+            </th>
+            <td>@Html.EditorFor(m => m.Eq_RecBoxNo)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Eq_RecBoxNo)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input type="submit" value="保存" />
+            </td>
+        </tr>
+    </table>
+}

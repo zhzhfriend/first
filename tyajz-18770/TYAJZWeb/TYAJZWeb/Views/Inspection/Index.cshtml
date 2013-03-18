@@ -1,0 +1,9 @@
+﻿@model String
+@{
+    ViewBag.Title = "开始报检";
+}
+@using (Html.BeginForm())
+{
+    @Html.TextBox("No")
+    <input type="submit" value="开始报检" />
+}

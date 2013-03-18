@@ -1,0 +1,64 @@
+﻿@model ProjectAddModel
+@{
+    ViewBag.Title = "Add";
+}
+太原市超重机械使用备案申请登记表
+@using (Html.BeginForm())
+{
+    
+    <table>
+        <tr>
+            <th width="200">
+                工程名称
+            </th>
+            <td>@Html.EditorFor(m => m.Name)
+            </td>
+            <th width="200">
+                工程地址
+            </th>
+            <td>@Html.EditorFor(m => m.Address)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                设备名称及型号
+            </th>
+            <td>@Model.EquipmentName @Model.EquipmentModel
+            </td>
+            <th>
+                产权备案编号
+            </th>
+            <td>@Model.EquipmentNO
+            </td>
+        </tr>
+        <tr>
+            <th rowspan="2">@Html.LabelFor(m => m.ConstructionCompany)
+            </th>
+            <td rowspan="2">@Html.EditorFor(m => m.ConstructionCompany)
+            </td>
+            <th>@Html.LabelFor(m => m.ConstructionProjectManager)
+            </th>
+            <td>@Html.EditorFor(m => m.ConstructionProjectManager)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(m => m.ConstructionProjectManagerPhoneMobile)
+            </th>
+            <td>@Html.EditorFor(m => m.ConstructionProjectManagerPhoneMobile)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(m => m.ConstructDateTime)</th>
+            <td>@Html.EditorFor(m=>m.ConstructDateTime)</td>
+            <th>@Html.LabelFor(m => m.DemolitionDateTime)</th>
+            <td>@Html.EditorFor(m => m.DemolitionDateTime)</td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(m => m.High)</th>
+            <td>@Html.EditorFor(m => m.High)</td>
+            <th>@Html.LabelFor(m => m.Comment)</th>
+            <td>@Html.EditorFor(m => m.Comment)</td>
+        </tr>
+        <tr><td colspan="4"><input type="submit" value="提交" /></td></tr>
+    </table>
+}

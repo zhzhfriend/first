@@ -1,0 +1,164 @@
+﻿@model MVCWeb.Models.Equipments.EquipmentDetailModel
+@{
+    ViewBag.Title = "PrintLocal";
+}
+@section Js
+{
+    <script src="@Url.Content("~/Scripts/LodopFuncs.js")" type="text/javascript"></script>
+    <object id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="0"
+        height="0">
+        <param name="Border" value="0">
+        <embed id="LODOP_EM" type="application/x-print-lodop" width="0" height="0"></embed>
+    </object>
+    <script type="text/javascript">
+        var LODOP; //声明为全局变量 
+        function prn1_preview() {
+            CreateOneFormPage();
+            LODOP.PREVIEW();
+
+            //LODOP.PRINT_DESIGN();
+        };
+        function CreateOneFormPage() {
+            LODOP = getLodop(document.getElementById('LODOP_OB'), document.getElementById('LODOP_EM'));
+            LODOP.PRINT_INITA('0mm', '0mm', 680, 974, "打印控件功能演示_Lodop功能_表单一");
+            //LODOP.SET_PRINT_PAGESIZE(1, 1780, 2500);
+            LODOP.ADD_PRINT_TEXT(99, 189, 143, 95, "@Html.DisplayFor(m => m.LendCompanyName)");
+            LODOP.ADD_PRINT_TEXT(92, 488, 153, 26, "@Html.DisplayFor(m => m.LendCompanyContactor)");
+            LODOP.ADD_PRINT_TEXT(135, 488, 153, 25, "新加文本3");
+            LODOP.ADD_PRINT_TEXT(176, 488, 153, 28, "新加文本4");
+            LODOP.ADD_PRINT_TEXT(231, 488, 153, 28, "新加文本5");
+            LODOP.ADD_PRINT_TEXT(296, 488, 153, 28, "新加文本6");
+            LODOP.ADD_PRINT_TEXT(340, 488, 153, 28, "新加文本7");
+            LODOP.ADD_PRINT_TEXT(220, 189, 143, 59, "新加文本8");
+            LODOP.ADD_PRINT_TEXT(295, 189, 143, 56, "新加文本9");
+            LODOP.ADD_PRINT_TEXT(453, 237, 262, 20, "新加文本10");
+            LODOP.ADD_PRINT_TEXT(496, 237, 262, 20, "新加文本11");
+            LODOP.ADD_PRINT_TEXT(640, 57, 105, 20, "新加文本12");
+            LODOP.ADD_PRINT_TEXT(640, 216, 105, 20, "新加文本13");
+            LODOP.ADD_PRINT_TEXT(640, 376, 105, 20, "新加文本14");
+            LODOP.ADD_PRINT_TEXT(640, 544, 105, 20, "新加文本15");
+            LODOP.ADD_PRINT_TEXT(809, 213, 261, 20, "新加文本16");
+            LODOP.ADD_PRINT_TEXT(885, 415, 47, 20, "@Html.DisplayFor(m => m.RegisterDate.Year)");
+            LODOP.ADD_PRINT_TEXT(885, 489, 47, 20, "@Html.DisplayFor(m => m.RegisterDate.Month)");
+            LODOP.ADD_PRINT_TEXT(885, 558, 47, 20, "@Html.DisplayFor(m => m.RegisterDate.Day)");
+        };
+    </script>
+}
+<h2>
+    打印《太原地区建筑企业超重设备备案手册》</h2>
+<span><a href="javascript:prn1_preview();">打印</a></span>
+<h3 class="ReportTitle">
+    超重设备自然情况表</h3>
+<table width="600">
+    <tr>
+        <td rowspan="2" class="noNeedPrint">
+            设备产权单位
+        </td>
+        <td rowspan="2" class="needPrint">
+            @Html.DisplayFor(m => m.LendCompanyName)
+        </td>
+        <td class="noNeedPrint">
+            负责人
+        </td>
+        <td class="needPrint">
+            @Html.DisplayFor(m => m.LendCompanyContactor)
+        </td>
+    </tr>
+    <tr>
+        <td class="noNeedPrint">
+            联系电话
+        </td>
+        <td class="needPrint">
+            @Html.DisplayFor(m => m.LendCompanyPhone)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            设备生产厂
+        </td>
+        <td class="needPrint">
+            @Html.DisplayFor(m => m.ProductCompany)
+        </td>
+        <td>
+            设计单位
+        </td>
+        <td class="needPrint">
+            @Html.DisplayFor(m => m.DesignCompany)
+        </td>
+    </tr>
+    <tr>
+        <td rowspan="2">
+            设备管理部门
+        </td>
+        <td rowspan="2">
+            @Html.DisplayFor(m => m.ManageDepartment)
+        </td>
+        <td>
+            地址
+        </td>
+        <td>
+            太原市金刚堰路44号
+        </td>
+    </tr>
+    <tr>
+        <td>
+            联系电话
+        </td>
+        <td>@Html.DisplayFor(m => m.ManageDepartmentPhone)
+        </td>
+    </tr>
+</table>
+<table width="600">
+    <tr>
+        <td>
+            起重设备名称
+        </td>
+        <td>@Html.DisplayFor(m => m.Name)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            超重设备备案编号
+        </td>
+        <td>@Html.DisplayFor(m => m.NO)
+        </td>
+    </tr>
+</table>
+<table width="600">
+    <tr>
+        <td>
+            型号
+        </td>
+        <td>
+            合格证号
+        </td>
+        <td>
+            出厂日期
+        </td>
+        <td>
+            出厂代号
+        </td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayFor(m => m.ProductModel)
+        </td>
+        <td>@Html.DisplayFor(m => m.CertificateNO)
+        </td>
+        <td>@Html.DisplayFor(m => m.ProductDate)
+        </td>
+        <td>@Html.DisplayFor(m => m.NoOfProductCompany)
+        </td>
+    </tr>
+</table>
+<table width="600">
+    <tr>
+        <td>
+            发证机关 @Html.DisplayFor(m => m.RegisterDepartment)
+        </td>
+    </tr>
+    <tr>
+        <td>
+            发证时间： @Html.DisplayFor(m => m.RegisterDate.Year) 年 @Html.DisplayTextFor(m=>m.RegisterDate.Month) 月 @Html.DisplayTextFor(m=>m.RegisterDate.Day) 日
+        </td>
+    </tr>
+</table>

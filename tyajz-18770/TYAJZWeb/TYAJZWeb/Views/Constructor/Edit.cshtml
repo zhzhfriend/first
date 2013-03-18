@@ -1,0 +1,103 @@
+﻿@model ConstructorEditModel
+@{
+    if (Model == null)
+    {
+        ViewBag.Title = "添加安拆人员";
+    }
+    else
+    {
+        ViewBag.Title = "修改安拆人员";
+    }
+}
+@Html.ValidationSummary(true)
+@using (Html.BeginForm())
+{
+    <table width="100%">
+        <tr>
+            <th width="140">
+                @Html.LabelFor(m => m.IssuingAuthority)
+            </th>
+            <td width="300">@Html.EditorFor(m => m.IssuingAuthority)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.IssuingAuthority)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(model => model.IssueDate)
+            </th>
+            <td>
+                @Html.EditorFor(model => model.IssueDate)
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.IssueDate)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(model => model.BirthYear)
+            </th>
+            <td>
+                @Html.EditorFor(model => model.BirthYear)
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.BirthYear)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(model => model.Name)
+            </th>
+            <td>
+                @Html.EditorFor(model => model.Name)
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.Name)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(model => model.CertificationNO)
+            </th>
+            <td>
+                @Html.EditorFor(model => model.CertificationNO)
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.CertificationNO)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(model => model.InsuranceId)
+            </th>
+            <td>
+                @Html.DropDownListFor(model => model.InsuranceId, ViewBag.Insurances as IList<SelectListItem>, "请选择", null)
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.InsuranceId)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(model => model.Comment)
+            </th>
+            <td>
+                @Html.EditorFor(model => model.Comment)
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.Comment)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(model => model.Employer)
+            </th>
+            <td>
+                @Html.EditorFor(model => model.Employer)
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.Employer)
+            </td>
+        </tr>
+        <tr>
+            <th>@Html.LabelFor(model => model.CategoryId)
+            </th>
+            <td>
+                @Html.DropDownListFor(model => model.CategoryId, ViewBag.Categories as IList<SelectListItem>, "请选择", null)
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.CategoryId)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input type="submit" value="保存" />
+            </td>
+        </tr>
+    </table>
+}

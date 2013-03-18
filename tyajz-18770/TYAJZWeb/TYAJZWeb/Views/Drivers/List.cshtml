@@ -1,0 +1,75 @@
+﻿@model IList<DriverListModel>
+@{
+    ViewBag.Title = "司机列表";
+}
+<h2>
+    司机列表</h2>
+@Html.ActionLink("注册新机构", "Add")
+<table width="100%">
+    <tr>
+        <th>
+            操作
+        </th>
+        <th>
+            备案编号
+        </th>
+        <th>
+            姓名
+        </th>
+        <th>
+            所在单位
+        </th>
+        <th>
+            类别
+        </th>
+        <th>
+            上岗证号
+        </th>
+        <th>
+            上保情况
+        </th>
+        <th>
+            正在操机
+        </th>
+        <th>
+            输入日期
+        </th>
+        <th>
+            打印
+        </th>
+        <th>
+            备注
+        </th>
+    </tr>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("修改", "Edit", new { id = m.Id }, new { @class = "lnkEdit" })
+                @Html.ActionLink("删除", "Delete", new { id = m.Id }, new { @class = "lnkDel" })
+                @Html.ActionLink("打印", "Print", new { id = m.Id }, new { @class = "lnkPrint" })
+            </td>
+            <td>@m.NO
+            </td>
+            <td>
+                @m.Name
+            </td>
+            <td>@m.Employer
+            </td>
+            <td>@m.Category
+            </td>
+            <td>@m.CertificationNO
+            </td>
+            <td>@Html.Raw((m.IsInsurance)?"是":"")
+            </td>
+            <td>@Html.Raw((m.IsWorking)?"是":"")
+            </td>
+            <td>@m.RegisterDate
+            </td>
+            <td>@Html.Raw((m.IsPrinted)?"是":"")
+            </td>
+            <td>@m.Comment
+            </td>
+        </tr>
+    }
+</table>

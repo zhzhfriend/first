@@ -1,0 +1,58 @@
+﻿@model IList<CompanyListModel>
+@{
+    ViewBag.Title = "机构列表";
+}
+@Html.ActionLink("注册新机构","Add")
+<table width="100%">
+    <tr>
+        <th>
+            操作
+        </th>
+        <th>
+            机构编号
+        </th>
+        <th>
+            机构名称
+        </th>
+        <th>
+            法人
+        </th>
+        <th>
+            联系人
+        </th>
+        <th>
+            生产资质
+        </th>
+        <th>
+            安装资质
+        </th>
+        <th>
+            租赁资质
+        </th>
+    </tr>
+    @foreach (var m in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("修改", "Edit", new { id = m.Id }, new { @class = "lnkEdit" })
+                @Html.ActionLink("删除", "Delete", new { id = m.Id }, new { @class = "lnkDel" })
+                @*@Html.ActionLink("查看变更记录", "History", new { id = m.Id }, new { @class = "lnkHistory" })*@
+            </td>
+            <td>@m.NO
+            </td>
+            <td>
+                @m.Name
+            </td>
+            <td>@m.Legal (@m.PhoneOfLegal)
+            </td>
+            <td>@m.Contactor (@m.PhoneOfContactor)
+            </td>
+            <td>@Html.Raw(m.CanProduct ? m.ProductNO : "")
+            </td>
+            <td>@Html.Raw(m.CanInstall ? m.InstallNO : "")
+            </td>
+            <td>@Html.Raw(m.CanLend ? m.LendNO : "")
+            </td>
+        </tr>
+    }
+</table>

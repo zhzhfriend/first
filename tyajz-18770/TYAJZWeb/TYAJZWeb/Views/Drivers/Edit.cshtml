@@ -1,0 +1,145 @@
+﻿@model DriverEditModel
+@{
+    if (Model == null)
+    {
+        ViewBag.Title = "添加";
+    }
+    else
+    {
+        ViewBag.Title = "编辑";
+    }
+}
+@Html.ValidationSummary()
+@using (Html.BeginForm())
+{
+    <table width="100%">
+        <tr>
+            <th width="140">
+                @Html.LabelFor(m => m.Name)
+            </th>
+            <td width="300">@Html.EditorFor(m => m.Name)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Name)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.CategoryId)
+            </th>
+            <td>@Html.DropDownListFor(m => m.CategoryId, ViewBag.Categories as IList<SelectListItem>, "请选择", null)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.CategoryId)
+            </td>
+        </tr>
+        @if (Model != null && Model.Id > 0)
+        {
+            <tr>
+                <th>
+                    @Html.LabelFor(m => m.NO)
+                </th>
+                <td>@Html.EditorFor(m => m.NO)
+                </td>
+                <td>@Html.ValidationMessageFor(m => m.NO)
+                </td>
+            </tr>
+        }
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Gender)
+            </th>
+            <td>@Html.DropDownListFor(m => m.Gender, ViewBag.Genders as IList<SelectListItem>, "请选择", null)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Gender)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.BirthYear)
+            </th>
+            <td>@Html.EditorFor(m => m.BirthYear)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.BirthYear)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.IsInsurance)
+            </th>
+            <td>@Html.EditorFor(m => m.IsInsurance)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.IsInsurance)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.IsWorking)
+            </th>
+            <td>@Html.EditorFor(m => m.IsWorking)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.IsWorking)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Employer)
+            </th>
+            <td>@Html.EditorFor(m => m.Employer)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Employer)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.CertificationNO)
+            </th>
+            <td>@Html.EditorFor(m => m.CertificationNO)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.CertificationNO)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.IssuingAuthority)
+            </th>
+            <td>@Html.EditorFor(m => m.IssuingAuthority)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.IssuingAuthority)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.IssueDate)
+            </th>
+            <td>@Html.EditorFor(m => m.IssueDate)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.IssueDate)
+            </td>
+        </tr>
+        @if (Model != null && Model.Id > 0)
+        {
+            <tr>
+                <th>
+                    @Html.LabelFor(m => m.RegisterDate)
+                </th>
+                <td>@Html.EditorFor(m => m.RegisterDate)
+                </td>
+                <td>@Html.ValidationMessageFor(m => m.RegisterDate)
+                </td>
+            </tr>
+        }
+        <tr>
+            <th>
+                @Html.LabelFor(m => m.Comment)
+            </th>
+            <td>@Html.EditorFor(m => m.Comment)
+            </td>
+            <td>@Html.ValidationMessageFor(m => m.Comment)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input type="submit" value="保存" />
+            </td>
+        </tr>
+    </table>
+}

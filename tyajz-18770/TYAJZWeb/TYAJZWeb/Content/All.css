@@ -1,0 +1,147 @@
+﻿*
+{
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+body
+{
+    background-color:#E9E9E9;
+}
+#Header
+{
+    background-image: url(Images/MainHeaderBg.png);
+    width: 100%;
+    height: 146px;
+    min-height: 146px;
+    color: White;
+}
+#Header .left
+{
+    width: 500px;
+    height: 74px;
+    padding: 50px 50px 0px 33px;
+    float:left;
+}
+#Header .left .title
+{
+    float: left;
+    width: 200px;
+    font-size: 14px;
+    text-align:center;
+}
+#Header .left .welcomeMessage
+{
+    float: left;
+    width: 200px;
+}
+#Header .right
+{
+    padding: 30px 50px 0px 33px;
+    float: right;
+    width: 200px;
+}
+#Header .right ul
+{
+    list-style: none;
+}
+#Header .right ul li
+{
+    padding:0 5px 0 5px;
+    float: left;
+}
+.Main
+{
+}
+.Main .LeftMenu
+{
+    float:left;
+    margin-left:20px;
+    width:156px;
+    background-image:url(Images/LeftMenuBg.png);
+    background-repeat:repeat-y;
+}
+.Main .LeftMenu .Top
+{
+    background-image:url(Images/LeftMenuTopBg.png);
+    min-height:21px;
+    height:21px;
+}
+.Main .LeftMenu ul
+{
+    padding-left:20px;
+    list-style:none;
+}
+.Main .LeftMenu li
+{
+    font-size:12px;
+    background-image:url(Images/LeftMenuLiBg.png);
+    background-repeat:no-repeat;
+    height:29px;
+    min-height:29px;
+    padding-left:40px;
+    padding-top:5px;
+    margin-bottom:10px;
+}
+
+.Main .LeftMenu li.active
+{
+    background-image:url(Images/LiBg.png);
+}
+.Main .LeftMenu .Bottom
+{
+    background-image:url(Images/LeftMenuBottomBg.png);
+    min-height:19px;
+    height:19px;
+}
+.Main .LeftMenu a:link
+{
+    color:#397693;
+    text-decoration:none;
+}
+.Main .LeftMenu a:visited
+{
+    color:#397693;
+    text-decoration:none;
+}
+.Main .LeftMenu a:active
+{
+    color:#397693;
+    text-decoration:none;
+}
+.Main .LeftMenu a:hover
+{
+    color:#397693;
+    text-decoration:none;
+}
+.Main .Body
+{
+    margin-left:196px;
+    background-color:#f3f3f3;
+    border:1px solid #dfdfdf;
+    margin-right:50px;
+    padding:10px 10px 10px 10px;
+}
+
+ul.hp4Imgs
+{
+    width:500px;
+    margin:50px auto 110px auto;
+    list-style:none;
+}
+ul.hp4Imgs li
+{
+    float:left;
+    width:49%;
+}
+
+#Footer
+{
+    background-image:url(Images/bottomBg.png);
+    background-position:right;
+    height:23px;
+    min-height:23px;
+}
+.ClearBoth
+{
+    clear:both;
+}

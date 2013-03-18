@@ -1,0 +1,20 @@
+﻿@model System.Collections.Generic.IEnumerable<MVCWeb.Models.Users.UserList>
+@{
+    ViewBag.Title = "List";
+}
+<h2>
+    List</h2>
+<table>
+    @foreach (var t in Model)
+    {
+        <tr>
+            <td>
+                @Html.ActionLink("修改", "Edit", new { username = @t.UserName }, new { @class = "lnkEdit" })
+                @Html.ActionLink("删除", "Del", new { username = @t.UserName }, new { @class = "lnkDel" })
+                @Html.ActionLink("重置密码", "ResetPasswd", new { username = @t.UserName }, new { @class = "lnkResetPassWd" })
+            </td>
+            <td>@t.RealName
+            </td>
+        </tr>
+    }
+</table>
