@@ -24,8 +24,10 @@
                         <th width="72">
                             用户名
                         </th>
+						<div class="editor-field">
                         <td>@Html.EditorFor(m => m.UserName)
                         </td>
+						</div>
                     </tr>
                     <tr>
                         <td>
@@ -37,7 +39,7 @@
                         <th>
                             密&nbsp;&nbsp;码
                         </th>
-                        <td>@Html.EditorFor(m => m.PassWord)
+                        <td  type="Password">@Html.EditorFor(m => m.PassWord)
                         </td>
                     </tr>
                 </table>
