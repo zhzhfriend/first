@@ -23,7 +23,7 @@ namespace Mock.Controllers
         //}
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         [HttpPost]
@@ -31,6 +31,11 @@ namespace Mock.Controllers
         {
             var user = model.UserName;
             var a = model.PassWord;
+
+            if (user=="admin"&& a=="1")
+            {
+                return View("Cloth_Show");
+            }
 
             return RedirectToAction("Index");
         }
